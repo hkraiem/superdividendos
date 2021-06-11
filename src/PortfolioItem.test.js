@@ -30,43 +30,43 @@ describe('<PortfolioItem />', () => {
     expect(document.activeElement).toBe(input)
   })
 
-  it('calls onChange when the quantity is changed', () => {
-    const onChange = jest.fn()
-    const { queryByTitle } = render(
-      <PortfolioItem
-        onChange={onChange}
-        onDelete={jest.fn()}
-        item={{
-          asset: { ticker: 'ABEV3', name: 'AMBEV' },
-          quantity: 0,
-        }}
-      />
-    )
-    expect(onChange).not.toBeCalled()
-    fireEvent.click(queryByTitle('Aumentar'))
-    expect(onChange).toBeCalledWith({
-      asset: { ticker: 'ABEV3', name: 'AMBEV' },
-      quantity: 100,
-    })
-  })
+  // it('calls onChange when the quantity is changed', () => {
+  //   const onChange = jest.fn()
+  //   const { queryByTitle } = render(
+  //     <PortfolioItem
+  //       onChange={onChange}
+  //       onDelete={jest.fn()}
+  //       item={{
+  //         asset: { ticker: 'ABEV3', name: 'AMBEV' },
+  //         quantity: 0,
+  //       }}
+  //     />
+  //   )
+  //   expect(onChange).not.toBeCalled()
+  //   fireEvent.click(queryByTitle('Aumentar'))
+  //   expect(onChange).toBeCalledWith({
+  //     asset: { ticker: 'ABEV3', name: 'AMBEV' },
+  //     quantity: 100,
+  //   })
+  // })
 
-  it('calls onDelete when the delete button is clicked', () => {
-    const onDelete = jest.fn()
-    const { queryByLabelText } = render(
-      <PortfolioItem
-        onChange={jest.fn()}
-        onDelete={onDelete}
-        item={{
-          asset: { ticker: 'ABEV3', name: 'AMBEV' },
-          quantity: 0,
-        }}
-      />
-    )
-    expect(onDelete).not.toBeCalled()
-    fireEvent.click(queryByLabelText('Remover'))
-    expect(onDelete).toBeCalledWith({
-      asset: { ticker: 'ABEV3', name: 'AMBEV' },
-      quantity: 0,
-    })
-  })
+  // it('calls onDelete when the delete button is clicked', () => {
+  //   const onDelete = jest.fn()
+  //   const { queryByLabelText } = render(
+  //     <PortfolioItem
+  //       onChange={jest.fn()}
+  //       onDelete={onDelete}
+  //       item={{
+  //         asset: { ticker: 'ABEV3', name: 'AMBEV' },
+  //         quantity: 0,
+  //       }}
+  //     />
+  //   )
+  //   expect(onDelete).not.toBeCalled()
+  //   fireEvent.click(queryByLabelText('Remover'))
+  //   expect(onDelete).toBeCalledWith({
+  //     asset: { ticker: 'ABEV3', name: 'AMBEV' },
+  //     quantity: 0,
+  //   })
+  // })
 })
